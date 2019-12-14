@@ -317,10 +317,18 @@
   )
 )
 
+(defn average
+      [numbers]
+      (/ (apply + numbers) (count numbers)))
+
 (defn -main [& args]
   (println (task1 (get-metrics)))
   (println (task2a (get-files)))
   (println (task2b (get-files)))
   (println (task2c (get-files)))
   (println (task3 (get-files)))
+
+  (println "Задания 1.2, 1.3")
+  (println "Средняя температура:" (average (map :cpuTemp (get-metrics))))
+  (println "Средняя загрузка:" (average (map :cpuLoad (get-metrics))))
 )
